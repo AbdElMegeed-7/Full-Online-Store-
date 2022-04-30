@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'category.apps.CategoryConfig',
+    'accounts.apps.AccountsConfig',
     
     'django.contrib.admin',
     'django.contrib.auth',
@@ -127,3 +128,7 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# To Tell The Settings We User Our Custom Model
+AUTH_USER_MODEL = 'accounts.Account'
