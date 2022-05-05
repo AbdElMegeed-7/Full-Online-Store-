@@ -34,19 +34,24 @@
           </figure>
         </td>
         <td> 
+
+
           <!-- col.// -->
                 <div class="col"> 
                   <div class="input-group input-spinner">
                     <div class="input-group-prepend">
-                    <button class="btn btn-light" type="button" id="button-plus"> <i class="fa fa-minus"></i> </button>
+                      <!--Important  add_ The products Using The - minus icon -->
+                      <a  href="{% url 'remove_cart' cart_item.product.id %}" class="btn btn-light" type="button" id="button-plus"> <i class="fa fa-minus"></i> </a>
                     </div>
                     <input type="text" class="form-control"  value="{{ cart_item.quantity }}">
                     <div class="input-group-append">
-                      <!--Important  Decrement The products Using The + plus icon -->
-                    <a href="{% url 'add_cart' cart_item.product.id %}" class="btn btn-light" type="button" id="button-minus"> <i class="fa fa-plus"></i> </a>
+                      <!--Important  add_ The products Using The + plus icon -->
+                      <a href="{% url 'add_cart' cart_item.product.id %}" class="btn btn-light" type="button" id="button-minus"> <i class="fa fa-plus"></i> </a>
                     </div>
                   </div> <!-- input-group.// -->
                 </div> <!-- col.// -->
+        
+
         </td>
         <td> 
           <div class="price-wrap"> 
@@ -74,11 +79,11 @@
         </dl>
         <dl class="dlist-align">
           <dt>Tax:</dt>
-          <dd class="text-right"> $10.00</dd>
+          <dd class="text-right"> ${{ tax }}</dd>
         </dl>
         <dl class="dlist-align">
-          <dt>Total:</dt>
-          <dd class="text-right text-dark b"><strong>$59.97</strong></dd>
+          <dt>Grand Total:</dt>
+          <dd class="text-right text-dark b"><strong>${{ grand_total }}</strong></dd>
         </dl>
         <hr>
         <p class="text-center mb-3">
