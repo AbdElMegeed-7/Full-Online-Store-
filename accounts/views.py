@@ -79,7 +79,7 @@ def login(request):
             return redirect('home')
         else:
             messages.error(request, "Invalid Login credintial")
-            return redirect('login')
+            return redirect('dashboard')
 
     return render(request, 'accounts/login.html')
 
@@ -106,3 +106,7 @@ def activate(request, uidb64, token):
     else:
         messages.error(request, "Invalid Account link")
         return redirect("register")
+
+@login_required(login_url="login")
+def dashboard(request):
+    return render(request, 'accounts/dashboard.html')
